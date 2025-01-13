@@ -7,6 +7,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+    // Definition of the storage for the time entries fro the app
+    private lateinit var timeEntryStorage: TimeEntryStorage
+
+    // App startup creation
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -16,5 +20,8 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // App creation of the storage for the time entries
+        timeEntryStorage = TimeEntryStorage(this)
     }
 }
