@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import java.io.File
 import java.sql.Time
 
+// Class that defines the storage for the time entries for the app
 class TimeEntryStorage(private val context: Context) {
     private val gson = Gson()
     private val fileName = "entries.json"
@@ -20,7 +21,7 @@ class TimeEntryStorage(private val context: Context) {
         incrementEntryCount()
     }
 
-    fun loadEntries(): List<TimeEntry> {
+    private fun loadEntries(): List<TimeEntry> {
         return try {
             val file = File(context.filesDir, fileName)
             if (file.exists()) {
@@ -41,5 +42,65 @@ class TimeEntryStorage(private val context: Context) {
 
     fun getEntryCount(): Int {
         return sharedPreferences.getInt("entry_count", 0)
+    }
+
+    // Function that gets the sum of the durations of all entries for a particular day
+    fun getEntrySumByDate(date: Long): Long {
+        val entries = loadEntries()
+        var sum: Long = 0
+        for (entry in entries) {
+            if (entry.startTime >= date && entry.endTime <= date) {
+                sum += entry.getDuration().toLong()
+            }
+        }
+        return sum
+    }
+
+    // Function that gets the sum of the durations of all entries for a particular week
+    fun getEntrySumByWeek(date: Long): Long {
+        val entries = loadEntries()
+        var sum: Long = 0
+        for (entry in entries) {
+            if (entry.startTime >= date - 604800000 && entry.endTime <= date) {
+                sum += entry.getDuration().toLong()
+            }
+        }
+        return sum
+    }
+
+    // Function that gets the sum of the durations of all entries for a particular month
+    fun getEntrySumByMonth(date: Long): Long {
+        val entries = loadEntries()
+        var sum: Long = 0
+        for (entry in entries) {
+            if (entry.startTime >= date - 2629746000 && entry.endTime <= date) {
+                sum += entry.getDuration().toLong()
+            }
+        }
+        return sum
+    }
+
+    // Function that gets the sum of the durations of all entries for a particular year
+    fun getEntrySumByYear(date: Long): Long {
+        val entries = loadEntries()
+        var sum: Long = 0
+        for (entry in entries) {
+            if (entry.startTime >= date - 31556952000 && entry.endTime <= date) {
+                sum += entry.getDuration().toLong()
+            }
+        }
+        return sum
+    }
+
+    // Function that gets the sum of the durations of all entries for a particular date range
+    fun getEntrySumByDateRange(startDate: Long, endDate: Long): Long {
+        val entries = loadEntries()
+        var sum: Long = 0
+        for (entry in entries) {
+            if (entry.startTime >= startDate && entry.endTime <= endDate) {
+                sum += entry.getDuration().toLong()
+            }
+        }
+        return sum
     }
 }
