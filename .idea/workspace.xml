@@ -16,12 +16,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dad59b63-e32c-4176-8bb9-a6294564343d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/example/csc475timer/TimeEntryStorageTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/csc475timer/TimeEntryStorage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/csc475timer/TimeEntryStorage.kt" afterDir="false" />
-    </list>
+    <list default="true" id="dad59b63-e32c-4176-8bb9-a6294564343d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
